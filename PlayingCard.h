@@ -26,12 +26,10 @@ enum suits_t{
   clubs,
   spades
 };
-const char* cardValue[] =
-  {
-  "2","3","4","5","6","7","8","9","T","J","Q","K","A"
+const char*suits[] =   {
+  "H","D","C","S"
 };
-const char* suits[] =
-  {
+const char* cardValue[] =   {
   "H","D","C","S"
 };
 class PlayingCard{

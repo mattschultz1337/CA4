@@ -1,10 +1,10 @@
 #include <iostream>
 #include <stdlib.h>
-#include "LLC.h"
+#include "PlayingCard.h"
 using namespace std;
 
 int main(int argc, char *argv[]){
-  LLC deck = *(new LLC());
+  LLC<PlayingCard> deck = *(new LLC<PlayingCard>());
   //hearts
   PlayingCard _2h = *(new PlayingCard(2,hearts));
   deck.insert(_2h);

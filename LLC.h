@@ -1,33 +1,40 @@
 #ifndef LLC_H
 #define LLC_H
-#include "PlayingCard.h"
+
+#include <iostream>
+#include <stdlib.h>
+#include <string>
+template<typename T>
 struct Node {
- PlayingCard data;
- Node *next;
+ T data;
+ Node<T> *next;
 };
+template <class T>
+
 class LLC {
 
     private:
-      Node *first;
-      Node *last;
+
+      Node<T> *first;
+      Node<T> *last;
     public:
         int main(int argc, char *argv[]);
         LLC(){
           first=NULL;
           last=NULL;
         }
-        Node* newNode(PlayingCard d);
+        Node<T>* newNode(T d);
         LLC(const LLC &list);
         LLC& operator=(const LLC& other);
         ~LLC();
         friend std::ostream& operator<<(std::ostream&, LLC& list);
-        bool contains(const PlayingCard &d);
-        bool insert(const PlayingCard &d);
-        void remove(const PlayingCard &d);
+        bool contains(const T &d);
+        bool insert(const T &d);
+        void remove(const T &d);
         void shuffle();
         LLC operator+(const LLC& other);
         void head(int n);
-        PlayingCard tail();
+        T tail();
         LLC operator+=(int n);
         int len();
         void join(const LLC &other);

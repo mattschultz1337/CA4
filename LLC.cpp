@@ -1,4 +1,5 @@
-
+#include <iostream>
+#include <stdlib.h>
 #include "LLC.h"
 using namespace std;
 
@@ -58,18 +59,19 @@ using namespace std;
 //   cout<<"testing contains: does "<< lilink<< "contain 'q'?: " << lilink.contains("q") << "\n";
 //
 // }
-Node * LLC::newNode(PlayingCard d) {
-  Node* n = new Node;
+template <class T>
+Node<T> * LLC<T>::newNode(T d) {
+  Node<T>* n = new Node<T>;
   n -> data = d;
   n -> next = NULL;
   return n;
 }
-
-LLC::LLC(const LLC & list) {
+template <class T>
+LLC<T>::LLC(const LLC<T> & list) {
   if (list.first != NULL) {
     first= newNode(list.first -> data);
     last=first;
-    Node * curr = list.first->next;
+    Node<T> * curr = list.first->next;
     while (curr!= NULL) {
       insert(curr -> data);
       curr = curr -> next;
@@ -78,15 +80,16 @@ LLC::LLC(const LLC & list) {
   }
 
 }
-LLC & LLC::operator = (const LLC & other) {
-  LLC* copy = new LLC(other);
+template <class T>
+LLC<T> & LLC<T>::operator = (const LLC<T> & other) {
+  LLC<T>* copy = new LLC<T>(other);
   first = copy -> first;
   last = copy -> last;
   return *this;
 }
-
-bool LLC::insert(const PlayingCard & d) {
-  Node* ins = newNode(d);
+template <class T>
+bool LLC<T>::insert(const T & d) {
+  Node<T>* ins = newNode(d);
   if (first == NULL) {
     first = ins;
     last = ins;
@@ -96,10 +99,11 @@ bool LLC::insert(const PlayingCard & d) {
   }
   return true;
 }
-LLC::~LLC() {
-  Node * current = first;
+template <class T>
+LLC<T>::~LLC() {
+  Node<T> * current = first;
   while (current != NULL) {
-    Node * next = current -> next;
+    Node<T> * next = current -> next;
     delete current;
     current = next;
   }
@@ -107,15 +111,17 @@ LLC::~LLC() {
   last = NULL;
 
 }
-bool LLC::contains(const PlayingCard & d) {
-  for (Node * curr = first; curr != NULL; curr = curr -> next) {
+template <class T>
+bool LLC<T>::contains(const T & d) {
+  for (Node<T> * curr = first; curr != NULL; curr = curr -> next) {
     if (curr -> data == d) return true;
   }
   return false;
 }
-void LLC::remove(const PlayingCard & d) {
-  Node * last = NULL;
-  for (Node * curr = first; curr != NULL; curr = curr -> next) {
+template <class T>
+void LLC<T>::remove(const T & d) {
+  Node<T> * last = NULL;
+  for (Node<T> * curr = first; curr != NULL; curr = curr -> next) {
     if (curr -> data == d) {
       if (curr == first) {
         first = curr -> next;
@@ -126,8 +132,9 @@ void LLC::remove(const PlayingCard & d) {
     last = curr;
   }
 }
-ostream & operator << (ostream & os, LLC & list) {
-  Node * curr;
+template <class T>
+ostream & operator << (ostream & os, LLC<T> & list) {
+  Node<T> * curr;
   os << "[";
   for (curr = list.first; curr -> next != NULL; curr = curr -> next) {
     os << curr -> data << ",";
@@ -135,9 +142,10 @@ ostream & operator << (ostream & os, LLC & list) {
   os << curr -> data << "]\n";
   return os;
 }
-void LLC::head(int n) {
+template <class T>
+void LLC<T>::head(int n) {
   cout << "[";
-  Node * curr = first;
+  Node<T> * curr = first;
   if (curr != NULL) {
     for (int i = 0; i < n - 1 && curr -> next != NULL; i++) {
       cout << curr -> data << ",";
@@ -147,9 +155,10 @@ void LLC::head(int n) {
     cout << "]\n";
   }
 }
-void LLC::join(const LLC &other){
+template <class T>
+void LLC<T>::join(const LLC<T> &other){
   if(other.first!=NULL){
-    Node* curr = other.first;
+    Node<T>* curr = other.first;
     while(curr!=NULL){
       insert(curr->data);
       curr = curr->next;
@@ -158,10 +167,11 @@ void LLC::join(const LLC &other){
   }
 
 }
-LLC LLC::operator+(const LLC& other){
-  LLC retLLC = *(new LLC(*this));
+template <class T>
+LLC<T> LLC<T>::operator+(const LLC<T>& other){
+  LLC<T> retLLC = *(new LLC<T>(*this));
   if(other.first!=NULL){
-    Node* curr = other.first;
+    Node<T>* curr = other.first;
     while(curr!=NULL){
       retLLC.insert(curr->data);
       curr = curr->next;
@@ -169,8 +179,9 @@ LLC LLC::operator+(const LLC& other){
   }
     return retLLC;
 }
-int LLC::len(){
-  Node* curr = first;
+template <class T>
+int LLC<T>::len(){
+  Node<T>* curr = first;
   int retval = 0;
   while(curr!=NULL){
     retval++;
@@ -178,8 +189,9 @@ int LLC::len(){
   }
   return retval;
 }
-LLC LLC::operator+=(int n){
-  LLC retLLC = *(new LLC(*this));
+template <class T>
+LLC<T> LLC<T>::operator+=(int n){
+  LLC<T> retLLC = *(new LLC<T>(*this));
   for(int i=0;i<n;i++){
     last->next = first;
     last = first;
@@ -188,7 +200,8 @@ LLC LLC::operator+=(int n){
   }
   return retLLC;
 }
-PlayingCard LLC::tail(){
+template <class T>
+T LLC<T>::tail(){
   cout<<"["<<last->data<<"]";
   return last->data;
 }
