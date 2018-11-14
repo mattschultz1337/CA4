@@ -25,6 +25,11 @@ class LLC {
         n -> next = NULL;
         return n;
       }
+      
+      LLC(){
+          first=NULL;
+          last=NULL;
+      }
 
       LLC(const LLC<T> & list) {
         if (list.first != NULL) {

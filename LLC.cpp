@@ -4,59 +4,59 @@
 using namespace std;
 
 // int main(int argc, char * argv[]) {
-//   string vals[] = {
-//     "a",
-//     "b",
-//     "c",
-//     "d",
-//     "e",
-//     "f"
-//   };
-//   string arr[] = {
-//     "g",
-//     "h",
-//     "i",
-//     "j",
-//     "k",
-//     "l"
-//   };
-//   LLC link = *(new LLC());
-//   int size = * ( & vals + 1) - vals;
-//   for (int i = 0; i < size; i++) {
-//     link.insert(vals[i]);
-//   }
-//   cout << "Testing <<\n";
-//   cout << link;
-//   cout<<"testing copy constructor\n";
-//   LLC lilink = *(new LLC(link));
-//   cout<<lilink;
-//   cout << "testing head(3)\n";
-//   link.head(3);
-//   cout << "testing remove\n";
-//   link.remove("c");
-//   cout<<link;
-//   cout << "testing len\n";
-//   cout<< link.len() << endl;
-//
-//   LLC twofer = *(new LLC());
-//   size = * ( & arr + 1) - arr;
-//   for (int x = 0; x < size; x++) {
-//      twofer.insert(arr[x]);
-//   }
-//   cout << "testing join\n";
-//   link.join(twofer);
-//   cout<<link;
-//   cout<<"testing +\n";
-//   twofer = link + lilink;
-//   cout<<twofer;
-//   cout<<"testing +=\n";
-//   lilink+=2;
-//   cout<<lilink;
-//   cout<<"testing tail()\n";
-//   twofer.tail();
-//   cout<< "is the last value in twofer: " << twofer;
-//   cout<<"testing contains: does "<< lilink<< "contain 'a'?: " << lilink.contains("a") << "\n";
-//   cout<<"testing contains: does "<< lilink<< "contain 'q'?: " << lilink.contains("q") << "\n";
+//   // string vals[] = {
+//   //   "a",
+//   //   "b",
+//   //   "c",
+//   //   "d",
+//   //   "e",
+//   //   "f"
+//   // };
+//   // string arr[] = {
+//   //   "g",
+//   //   "h",
+//   //   "i",
+//   //   "j",
+//   //   "k",
+//   //   "l"
+//   // };
+//   // LLC link = *(new LLC());
+//   // int size = * ( & vals + 1) - vals;
+//   // for (int i = 0; i < size; i++) {
+//   //   link.insert(vals[i]);
+//   // }
+//   // cout << "Testing <<\n";
+//   // cout << link;
+//   // cout<<"testing copy constructor\n";
+//   // LLC lilink = *(new LLC(link));
+//   // cout<<lilink;
+//   // cout << "testing head(3)\n";
+//   // link.head(3);
+//   // cout << "testing remove\n";
+//   // link.remove("c");
+//   // cout<<link;
+//   // cout << "testing len\n";
+//   // cout<< link.len() << endl;
+//   //
+//   // LLC twofer = *(new LLC());
+//   // size = * ( & arr + 1) - arr;
+//   // for (int x = 0; x < size; x++) {
+//   //    twofer.insert(arr[x]);
+//   // }
+//   // cout << "testing join\n";
+//   // link.join(twofer);
+//   // cout<<link;
+//   // cout<<"testing +\n";
+//   // twofer = link + lilink;
+//   // cout<<twofer;
+//   // cout<<"testing +=\n";
+//   // lilink+=2;
+//   // cout<<lilink;
+//   // cout<<"testing tail()\n";
+//   // twofer.tail();
+//   // cout<< "is the last value in twofer: " << twofer;
+//   // cout<<"testing contains: does "<< lilink<< "contain 'a'?: " << lilink.contains("a") << "\n";
+//   // cout<<"testing contains: does "<< lilink<< "contain 'q'?: " << lilink.contains("q") << "\n";
 //
 // }
 // template <class T>
